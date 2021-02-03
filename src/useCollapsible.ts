@@ -7,9 +7,9 @@ import type { State, Config } from './types';
 
 const { Clock, Value } = Animated;
 
-export function useCollapsible(config?: Config) {
+export function useCollapsible(config?: Config, initialState?: State) {
   const [height, setHeight] = React.useState(0);
-  const [state, setState] = React.useState<State>('collapsed');
+  const [state, setState] = React.useState<State>(initialState);
 
   const { current: clock } = React.useRef(new Clock());
   const { current: progress } = React.useRef(new Value<number>(0));
